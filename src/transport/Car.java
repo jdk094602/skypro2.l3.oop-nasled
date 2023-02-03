@@ -1,12 +1,8 @@
 package transport;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
     private float engineVolume; // объем двигателя
-    private String color;
     private final int year;           // год выпуска
-    private String country;     // страна сборки
     private String gearType;    // тип коробки передач
     private String bodyType;    // тип кузова
     private String regNum;     // рег.номер
@@ -53,16 +49,13 @@ public class Car {
 //        false, false);
 //    }
     public Car(String brand, String model, float engineVolume, String color, int year, String country,
-               String gearType, String bodyType, String regNum, String capacity, boolean winterTyres
+               String gearType, String bodyType, String regNum, String capacity, boolean winterTyres, int maxSpeed
 //               , Key key // если бы класс Key был статическим
 //               , boolean isInvoice, boolean isRemoteEngineStart
     ) {
-        this.brand = brand;
-        this.model = model;
+        super(brand, model, color, country, maxSpeed);
         this.setEngineVolume(engineVolume);
-        this.setColor(color);
         this.year = year;
-        this.setCountry(country);
         this.setGearType(gearType);
         this.bodyType = bodyType;
         this.setRegNum(regNum);
@@ -82,14 +75,6 @@ public class Car {
         car.setWinterTyres(monthNum >= 4 && monthNum <= 10 ? false : true);
     }
 
-    public String getBrand() {
-        return fillString (brand,"default");
-    }
-
-    public String getModel() {
-        return fillString (model,"default");
-    }
-
     public float getEngineVolume() {
         return engineVolume <= 0 ? 1.5F : engineVolume ;
     }
@@ -98,25 +83,8 @@ public class Car {
         this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
-        return fillString (color,"белый");
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public int getYear() {
         return year <=0 ? 2000 : year;
-    }
-
-
-    public String getCountry() {
-        return fillString (country,"default");
-    }
-
-    public void setCountry(String country) {
-        this.country = country ;
     }
 
     public String getGearType() {
@@ -167,6 +135,7 @@ public class Car {
                 + ", тип кузова - '" + getBodyType() + '\''
                 + ", регистрационный № - '" + getRegNum() + '\''
                 + ", вместимость - '" + getCapacity() + '\''
+                + ", MAX скорость '" + getMaxSpeed() + '\''
                 + ", зимняя резина - '" + isWinterTyres() + '\''  + "\n"
 //              + this.key.toString()
 //                + "            ключ :"
