@@ -1,5 +1,5 @@
 
-import transport.Car;
+import transport.*;
 
 import java.util.Arrays;
 
@@ -74,6 +74,8 @@ public class Main {
         Car[] car = new Car[7];         /// массив для объекто класса Car
 //        Car.Key[] key = new Car.Key[7];  /// массив для объекто класса Car.Key - если бы класс Key был статическим
 
+        Bus[] bus = new Bus[3];         /// массив для объекто класса Bus
+
         car[0] = new Car("Lada","Granta",1.7F,"желтый",2015,"Россия",
                 "manual", "sedan", "RTY1357908642", "5 человек+3 багажа", true, 180
 //                , new Car.Key(true , true)  // если бы класс Key был статическим можно создавать его объекты прямо в конструкторе внешн. класса
@@ -119,5 +121,12 @@ public class Main {
 
         System.out.println("Сменили резину в " + car[6].getBrand() + " " + car[6].getModel() );
         System.out.println(car[6]);
+
+        bus[0] = new Bus("Ikarus","Sport","малиновый","Венгрия",120 );
+        bus[1] = new Bus("ЛАЗ","1970","Серый","СССР",70 );
+        bus[2] = new Bus("Mercedes","Classic6S","серебристый","Германия",230 );
+
+        System.out.println(Arrays.toString(bus));
+
     }
 }

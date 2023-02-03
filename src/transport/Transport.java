@@ -56,7 +56,7 @@ public class Transport {
 
     @Override
     public String toString() {
-        return "Автомобиль " +
+        return "Транспортное средство " +
                 getBrand() + ' ' + getModel() +
                 ", цвет '" + getColor() + '\'' +
                 ", MAX скорость '" + getMaxSpeed() + '\'' +
